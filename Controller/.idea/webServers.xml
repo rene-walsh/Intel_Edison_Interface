@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="822ff2b6-7156-4772-92d2-5888c95b3c61" name="intel_edison" url="http://10.0.0.145">
+        <fileTransfer host="10.0.0.145" port="22" rootFolder="/home/root" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

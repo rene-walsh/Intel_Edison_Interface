@@ -1,0 +1,342 @@
+{% load i18n %}{% load staticfiles %}<!DOCTYPE html>
+<html lang="en-us" xmlns="http://www.w3.org/1999/html">
+<head>
+   <meta charset="utf-8">
+   <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+
+   <title> SmartAdmin </title>
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <!-- Basic Styles -->
+   <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/bootstrap.min.css" %}">
+   <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/font-awesome.min.css" %}">
+   <!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+   <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/smartadmin-production-plugins.min.css" %}">
+   <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/smartadmin-production.min.css" %}">
+   <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/smartadmin-skins.min.css" %}">
+   <!-- SmartAdmin RTL Support  -->
+   <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/smartadmin-rtl.min.css" %}">
+   <!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+   <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/demo.min.css" %}">
+   <!-- FAVICONS -->
+   <link rel="shortcut icon" href="{% static "img/favicon/favicon.ico" %}" type="image/x-icon">
+   <link rel="icon" href="{% static "img/favicon/favicon.ico" %}" type="image/x-icon">
+   <!-- GOOGLE FONT -->
+   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+   <!-- Specifying a Webpage Icon for Web Clip
+          Ref: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
+   <link rel="apple-touch-icon" href="{% static "img/splash/sptouch-icon-iphone.png" %}">
+   <link rel="apple-touch-icon" sizes="76x76" href="{% static "img/splash/touch-icon-ipad.png" %}">
+   <link rel="apple-touch-icon" sizes="120x120" href="{% static "img/splash/touch-icon-iphone-retina.png" %}">
+   <link rel="apple-touch-icon" sizes="152x152" href="{% static "img/splash/touch-icon-ipad-retina.png" %}">
+   <!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+   <!-- Startup image for web apps -->
+   <link rel="apple-touch-startup-image" href="{% static "img/splash/ipad-landscape.png" %}"
+         media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+   <link rel="apple-touch-startup-image" href="{% static "img/splash/ipad-portrait.png" %}"
+         media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+   <link rel="apple-touch-startup-image" href="{% static "img/splash/iphone.png" %}"
+         media="screen and (max-device-width: 320px)">
+
+
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+   <div id="logo-group">
+   </div>
+</header>
+<!-- END HEADER -->
+
+<!-- Left panel : Navigation area -->
+<!-- Note: This width of the aside area can be adjusted through LESS variables -->
+<aside id="left-panel">
+   <!-- User info -->
+   <div class="login-info">
+				<span> <!-- User image size is adjusted inside CSS, it should stay as it -->
+					<a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+                  <label alt="me" class="online"/>
+						<span>
+		               Admin
+						</span>
+                  <i class="fa fa-angle-down"></i>
+               </a>
+				</span>
+   </div>
+   <!-- end user info -->
+
+   <!-- NAVIGATION : This navigation is also responsive-->
+   <nav>
+      <!--
+          NOTE: Notice the gaps after each icon usage <i></i>..
+          Please note that these links work a bit different than
+          traditional href="" links. See documentation for details.
+          -->
+      <ul>
+         <li class="active">
+            <a href="/" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
+            <ul>
+               <li class="active">
+                  <a href="/" title="Dashboard"><span class="menu-item-parent">Analytics Dashboard</span></a>
+               </li>
+            </ul>
+         </li>
+      </ul>
+   </nav>
+
+			<span class="minifyme" data-action="minifyMenu">
+				<i class="fa fa-arrow-circle-left hit"></i>
+			</span>
+</aside>
+<!-- END NAVIGATION -->
+
+{% block content %}
+{% endblock %}
+
+<!-- PAGE FOOTER -->
+<div class="page-footer">
+   <div class="row">
+      <div class="col-xs-12 col-sm-6">
+                     <span class="txt-color-white">Plants 0.0.1 <span
+                           class="hidden-xs"> Plants Service</span> © 2016-2017</span>
+      </div>
+   </div>
+</div>
+<!-- END PAGE FOOTER -->
+
+<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+<script data-pace-options='{ "restartOnRequestAfter": true }'
+        src="{% static "js/plugin/pace/pace.min.js" %}"></script>
+
+<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+   if (!window.jQuery) {
+      document.write('<script src=""{% static "js/libs/jquery-2.1.1.min.js" %}"><\/script>');
+   }
+</script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script>
+   if (!window.jQuery.ui) {
+      document.write('<script src=""{% static "js/libs/jquery-ui-1.10.3.min.js" %}"><\/script>');
+   }
+</script>
+
+<!-- IMPORTANT: APP CONFIG -->
+<script src="{% static "js/app.config.js" %}"></script>
+<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+<script src="{% static "js/plugin/jquery-touch/jquery.ui.touch-punch.min.js" %}"></script>
+<!-- BOOTSTRAP JS -->
+<script src="{% static "js/bootstrap/bootstrap.min.js" %}"></script>
+<!-- CUSTOM NOTIFICATION -->
+<script src="{% static "js/notification/SmartNotification.min.js" %}"></script>
+<!-- JARVIS WIDGETS -->
+<script src="{% static "js/smartwidgets/jarvis.widget.min.js" %}"></script>
+<!-- EASY PIE CHARTS -->
+<script src="{% static "js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js" %}"></script>
+<!-- SPARKLINES -->
+<script src="{% static "js/plugin/sparkline/jquery.sparkline.min.js" %}"></script>
+<!-- JQUERY VALIDATE -->
+<script src="{% static "js/plugin/jquery-validate/jquery.validate.min.js" %}"></script>
+<!-- JQUERY MASKED INPUT -->
+<script src="{% static "js/plugin/masked-input/jquery.maskedinput.min.js" %}"></script>
+<!-- JQUERY SELECT2 INPUT -->
+<script src="{% static "js/plugin/select2/select2.min.js" %}"></script>
+<!-- JQUERY UI + Bootstrap Slider -->
+<script src="{% static "js/plugin/bootstrap-slider/bootstrap-slider.min.js" %}"></script>
+<!-- browser msie issue fix -->
+<script src="{% static "js/plugin/msie-fix/jquery.mb.browser.min.js" %}"></script>
+<!-- FastClick: For mobile devices -->
+<script src="{% static "js/plugin/fastclick/fastclick.min.js" %}"></script>
+<!-- Demo purpose only -->
+<script src="{% static "js/demo.min.js" %}"></script>
+<!-- MAIN APP JS FILE -->
+<script src="{% static "js/app.min.js" %}"></script>
+<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+<!-- Voice command : plugin -->
+<script src="{% static "js/speech/voicecommand.min.js" %}"></script>
+<!-- SmartChat UI : plugin -->
+<script src="{% static "js/smart-chat-ui/smart.chat.ui.min.js" %}"></script>
+<script src="{% static "js/smart-chat-ui/smart.chat.manager.min.js" %}"></script>
+
+<!-- PAGE RELATED PLUGIN(S) -->
+
+<!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip -->
+<script src="{% static "js/plugin/flot/jquery.flot.cust.min.js" %}"></script>
+<script src="{% static "js/plugin/flot/jquery.flot.resize.min.js" %}"></script>
+<script src="{% static "js/plugin/flot/jquery.flot.time.min.js" %}"></script>
+<script src="{% static "js/plugin/flot/jquery.flot.tooltip.min.js" %}"></script>
+<script src="{% static "js/plugin/flot/jquery.flot.fillbetween.min.js" %}"></script>
+<script src="{% static "js/plugin/flot/jquery.flot.orderBar.min.js" %}"></script>
+<script src="{% static "js/plugin/flot/jquery.flot.pie.min.js" %}"></script>
+
+
+<!-- Full Calendar -->
+<script src="{% static "js/plugin/moment/moment.min.js" %}"></script>
+<script src="{% static "js/plugin/fullcalendar/jquery.fullcalendar.min.js" %}"></script>
+
+<script>
+   $(document).ready(function () {
+
+      // DO NOT REMOVE : GLOBAL FUNCTIONS!
+      pageSetUp();
+
+      /*
+       * PAGE RELATED SCRIPTS
+       */
+
+      $(".js-status-update a").click(function () {
+         var selText = $(this).text();
+         var $this = $(this);
+         $this.parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+         $this.parents('.dropdown-menu').find('li').removeClass('active');
+         $this.parent().addClass('active');
+      });
+
+      /*
+       * TODO: add a way to add more todo's to list
+       */
+
+      // initialize sortable
+      $(function () {
+         $("#sortable1, #sortable2").sortable({
+            handle: '.handle',
+            connectWith: ".todo",
+            update: countTasks
+         }).disableSelection();
+      });
+
+      // check and uncheck
+      $('.todo .checkbox > input[type="checkbox"]').click(function () {
+         var $this = $(this).parent().parent().parent();
+
+         if ($(this).prop('checked')) {
+            $this.addClass("complete");
+
+            // remove this if you want to undo a check list once checked
+            //$(this).attr("disabled", true);
+            $(this).parent().hide();
+
+            // once clicked - add class, copy to memory then remove and add to sortable3
+            $this.slideUp(500, function () {
+               $this.clone().prependTo("#sortable3").effect("highlight", {}, 800);
+               $this.remove();
+               countTasks();
+            });
+         } else {
+            // insert undo code here...
+         }
+
+      });
+      // count tasks
+      function countTasks() {
+
+         $('.todo-group-title').each(function () {
+            var $this = $(this);
+            $this.find(".num-of-tasks").text($this.next().find("li").size());
+         });
+
+      }
+
+      /*
+       * RUN PAGE GRAPHS
+       */
+
+      /* TAB 1: UPDATING CHART */
+      // For the demo we use generated data, but normally it would be coming from the server
+
+      var data = [], totalPoints = 200, $UpdatingChartColors = $("#updating-chart").css('color');
+
+      function getRandomData() {
+         if
+         (data.length > 0)
+            data = data.slice(1);
+
+         // do a random walk
+         while (data.length < totalPoints) {
+            var prev = data.length > 0 ? data[data.length - 1] : 50;
+            var y = prev + Math.random() * 10 - 5;
+            if
+            (y < 0)
+               y = 0;
+            if (y > 100)
+               y = 100;
+            data.push(y);
+         }
+
+         // zip the generated y values with the x values
+         var res = [];
+         for (var i = 0; i < data.length; ++i)
+            res.push([i, data[i]])
+         return res;
+      }
+
+      // setup control widget
+      var updateInterval = 1500;
+      $("#updating-chart").val(updateInterval).change(function () {
+
+         var v = $(this).val();
+         if (v && !isNaN(+v)) {
+            updateInterval = +v;
+            $(this).val("" + updateInterval);
+         }
+
+      });
+
+      // setup plot
+      var options
+            = {
+         yaxis: {
+            min: 0,
+            max: 100
+         },
+         xaxis: {
+            min: 0,
+            max: 100
+         },
+         colors: [$UpdatingChartColors],
+         series: {
+            lines: {
+               lineWidth: 1,
+               fill: true,
+               fillColor: {
+                  colors: [{
+                     opacity: 0.4
+                  }, {
+                     opacity: 0
+                  }]
+               },
+               steps: false
+
+            }
+         }
+      };
+
+      var plot = $.plot($("#updating-chart"), [getRandomData()], options);
+
+      /* live switch */
+      $(
+            'input[type="checkbox"]#start_interval').click(function () {
+         if ($(this).prop('checked')) {
+            $on = true;
+            updateInterval = 1500;
+            update();
+         } else {
+            clearInterval(updateInterval);
+            $on = false;
+         }
+      });
+
+   });
+</script>
+
+{% block script %}
+{% endblock %}
+</body>
+
+</html>
